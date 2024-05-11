@@ -1,12 +1,16 @@
 extends CharacterBody3D
 
-
 var speed = 6.0
 const JUMP_VELOCITY = 6.5
 var level_falling = false
 var num_jumps = 0
 var max_jumps = 1
 
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		$CameraStick.rotate_y(-event.relative.x * GameGlobals.mouse_sens)
+		$CameraStick/Camera3D.rotate_x(-event.relative.y * GameGlobals.mouse_sens)
+		$CameraStick/Camera3D.rotation.x = clamp($CameraStick/Camera3D.rotation.x, -PI/4, PI/10)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,7 +32,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = ($CameraStick.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed

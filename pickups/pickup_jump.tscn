@@ -7,10 +7,10 @@ albedo_color = Color(0.06, 1, 0.169667, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hj3qu"]
 material = SubResource("StandardMaterial3D_diuir")
-size = Vector3(0.6, 0.6, 0.6)
+size = Vector3(0.7, 0.7, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1cik"]
-size = Vector3(0.6, 0.6, 0.6)
+size = Vector3(0.8, 0.8, 0.8)
 
 [node name="PickupJump" type="Area3D"]
 collision_layer = 2

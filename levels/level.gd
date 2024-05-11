@@ -6,6 +6,7 @@ var grav_threshold = 25
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var player = player_scene.instantiate()
 	player.transform.origin = $PlayerContainer/PlayerSpawnPoint.transform.origin
 	$PlayerContainer.add_child(player)
