@@ -1,3 +1,3 @@
 extends Node
 
-var gravity = 9.5
+var level = 1

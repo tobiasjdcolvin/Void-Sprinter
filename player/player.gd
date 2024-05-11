@@ -8,7 +8,7 @@ const JUMP_VELOCITY = 6.5
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= GameGlobals.gravity * delta
+		velocity.y -= PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():

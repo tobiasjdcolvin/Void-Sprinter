@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://blbyky0qw54e0"]
+[gd_scene load_steps=10 format=3 uid="uid://blbyky0qw54e0"]
 
+[ext_resource type="Script" path="res://levels/level_1.gd" id="1_71tng"]
 [ext_resource type="PackedScene" uid="uid://canps3ve1sgjj" path="res://player/player.tscn" id="1_ppepk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x742i"]
@@ -24,7 +25,13 @@ size = Vector3(10, 0.8, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3ohw"]
 size = Vector3(10, 0.8, 10)
 
+[sub_resource type="TextMesh" id="TextMesh_4gcxs"]
+text = "Reference Point"
+font_size = 127
+uppercase = true
+
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_71tng")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ok5sf")
@@ -36,7 +43,8 @@ directional_shadow_mode = 0
 
 [node name="Platforms" type="Node3D" parent="."]
 
-[node name="Platform1" type="StaticBody3D" parent="Platforms"]
+[node name="Platform1" type="RigidBody3D" parent="Platforms"]
+axis_lock_linear_y = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Platform1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.4, 2.08165e-12)
@@ -46,8 +54,9 @@ mesh = SubResource("BoxMesh_f5b12")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.4, 2.08165e-12)
 shape = SubResource("BoxShape3D_y3ohw")
 
-[node name="Platform2" type="StaticBody3D" parent="Platforms"]
+[node name="Platform2" type="RigidBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.19, -12.78)
+axis_lock_linear_y = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Platform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.4, 2.08165e-12)
@@ -57,8 +66,9 @@ mesh = SubResource("BoxMesh_f5b12")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.4, 2.08165e-12)
 shape = SubResource("BoxShape3D_y3ohw")
 
-[node name="Platform3" type="StaticBody3D" parent="Platforms"]
+[node name="Platform3" type="RigidBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21, 3.9, -27.61)
+axis_lock_linear_y = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Platform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.4, 2.08165e-12)
@@ -72,3 +82,12 @@ shape = SubResource("BoxShape3D_y3ohw")
 
 [node name="Player" parent="." instance=ExtResource("1_ppepk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="GravityTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ReferenceText" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44, 7.26, -28.72)
+mesh = SubResource("TextMesh_4gcxs")
+
+[connection signal="timeout" from="GravityTimer" to="." method="_on_gravity_timer_timeout"]
