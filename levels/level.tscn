@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://blbyky0qw54e0"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_kxf4g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x742i"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3rs0p"]
+sky_material = SubResource("ProceduralSkyMaterial_x742i")
+
+[sub_resource type="Environment" id="Environment_ok5sf"]
+background_mode = 1
+sky = SubResource("Sky_3rs0p")
+tonemap_mode = 2
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_kxf4g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ok5sf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -6.02207e-16, 2.39647e-16, 2.39647e-16, 0.687087, 0.726575, -6.02207e-16, -0.726575, 0.687087, 0.0110445, 12.6982, 0.0105581)
+light_energy = 0.6
+directional_shadow_mode = 0
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="Pickups" type="Node3D" parent="."]
+
+[node name="GravityTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PlayerContainer" type="Node3D" parent="."]
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="PlayerContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 3.77226, 2.08165e-12)
+
+[connection signal="timeout" from="GravityTimer" to="." method="_on_gravity_timer_timeout"]

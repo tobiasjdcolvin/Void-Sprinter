@@ -3,11 +3,12 @@ extends CharacterBody3D
 
 const SPEED = 6.0
 const JUMP_VELOCITY = 6.5
+var level_falling = false
 
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() or level_falling:
 		velocity.y -= PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) * delta
 
 	# Handle jump.
