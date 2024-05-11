@@ -24,19 +24,26 @@ func _physics_process(delta):
 		max_jumps = 1
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and num_jumps <= max_jumps - 1 and $JumpTimer.is_stopped():
+	if Input.is_action_pressed("jump") and num_jumps <= max_jumps - 1 and $JumpTimer.is_stopped():
 		velocity.y = JUMP_VELOCITY
 		num_jumps += 1
 		$JumpTimer.start()
+	
+	if Input.is_action_pressed("dash") and $DashResetTimer.is_stopped():
+		$DashTimer.start()
+		$DashResetTimer.start()
+	
+	if not $DashTimer.is_stopped():
+		global_position = global_position.move_toward($CameraStick/DashMarker.global_position, delta * 25)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = ($CameraStick.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and $DashTimer.is_stopped:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-	else:
+	elif $DashTimer.is_stopped:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
