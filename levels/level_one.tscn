@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkfxtiavayq4k"]
+[gd_scene load_steps=6 format=3 uid="uid://bkfxtiavayq4k"]
 
 [ext_resource type="PackedScene" uid="uid://blbyky0qw54e0" path="res://levels/level.tscn" id="1_yigoe"]
 [ext_resource type="PackedScene" uid="uid://lkdfpjqlndm0" path="res://platforms/platform_reg.tscn" id="2_instf"]
+[ext_resource type="PackedScene" uid="uid://1d56f4hpoikm" path="res://pickups/pickup_jump.tscn" id="3_54qat"]
+[ext_resource type="PackedScene" uid="uid://tl82a2m8rhfq" path="res://pickups/pickup_grav.tscn" id="4_wfegy"]
 
 [sub_resource type="TextMesh" id="TextMesh_4gcxs"]
 text = "Reference Point"
@@ -21,6 +23,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14884, 3.68627, -24.4229)
 
 [node name="PlatformReg4" parent="Platforms" index="3" instance=ExtResource("2_instf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4771, 8.076, -38.372)
+
+[node name="PickupJump1" parent="Pickups" index="0" instance=ExtResource("3_54qat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92553, -4.95362)
+
+[node name="PickupJump2" parent="Pickups" index="1" instance=ExtResource("3_54qat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26154, 4.56189, -17.2052)
+
+[node name="PickupJump3" parent="Pickups" index="2" instance=ExtResource("3_54qat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49616, 7.48658, -30.311)
+
+[node name="PickupGrav" parent="Pickups" index="3" instance=ExtResource("4_wfegy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82332, 2.29466, -11.0163)
+
+[node name="PickupGrav2" parent="Pickups" index="4" instance=ExtResource("4_wfegy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7758, 9.06905, -37.4728)
 
 [node name="ReferenceText" type="MeshInstance3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97234, 3.78151, -34.4833)

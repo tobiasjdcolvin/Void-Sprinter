@@ -11,6 +11,7 @@ material = SubResource("StandardMaterial3D_44dtx")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yhk03"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 7
 script = ExtResource("1_rjtp0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -23,3 +24,7 @@ shape = SubResource("CapsuleShape3D_yhk03")
 
 [node name="Camera3D" type="Camera3D" parent="CameraStick"]
 transform = Transform3D(1, 0, 0, 0, 0.984762, 0.173906, 0, -0.173906, 0.984762, 0, 3.54632, 5.11796)
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
