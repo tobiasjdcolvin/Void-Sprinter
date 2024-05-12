@@ -1,11 +1,12 @@
 .godot/
 dist/
-*.vs
-*.tmp
-*blend1
-*.DS_Store
+**.vs
+**.tmp
+**blend1
+**.DS_Store
 
 .import/
+**.import
 export.cfg
 export_presets.cfg
 
