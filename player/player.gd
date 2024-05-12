@@ -6,6 +6,9 @@ var level_falling = false
 var num_jumps = 0
 var max_jumps = 1
 
+func grav_updated():
+	get_parent().get_parent().grav_update()
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		$CameraStick.rotate_y(-event.relative.x * GameGlobals.mouse_sens)
@@ -24,12 +27,12 @@ func _physics_process(delta):
 		max_jumps = 1
 
 	# Handle jump.
-	if Input.is_action_pressed("jump") and num_jumps <= max_jumps - 1 and $JumpTimer.is_stopped():
+	if Input.is_action_pressed("jump") and num_jumps <= max_jumps - 1 and $JumpTimer.is_stopped() and not level_falling:
 		velocity.y = JUMP_VELOCITY
 		num_jumps += 1
 		$JumpTimer.start()
 	
-	if Input.is_action_pressed("dash") and $DashResetTimer.is_stopped():
+	if Input.is_action_pressed("dash") and $DashResetTimer.is_stopped() and not level_falling:
 		$DashTimer.start()
 		$DashResetTimer.start()
 	
@@ -48,3 +51,4 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://djfr0mmvq5muc"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_phsoo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxult"]
+bg_color = Color(0.444, 0.592, 0.74, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iklek"]
+bg_color = Color(0.78, 0.273, 0.273, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_phsoo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.146
+anchor_bottom = 0.048
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_rxult")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iklek")
+min_value = 9.8
+max_value = 36.0
+value = 9.8
+allow_greater = true
+allow_lesser = true
+show_percentage = false
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Gravity"
+horizontal_alignment = 1
+vertical_alignment = 1

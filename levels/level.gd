@@ -1,8 +1,9 @@
 extends Node3D
 
 var player_scene = preload("res://player/player.tscn")
-var grav_increaser = 1.5
-var grav_threshold = 25
+var grav_increaser = 3
+var grav_threshold = 36
+@onready var grav_ui = $HUD/VBoxContainer/ProgressBar
 
 
 func _ready():
@@ -14,10 +15,14 @@ func _ready():
 func _on_gravity_timer_timeout():
 	# continuously add "grav_increaser" to the project's gravity
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY, PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) + grav_increaser)
+	grav_ui.set_value_no_signal(PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY))
 	
 	# suck everything into the void once gravity reaches "grav_threshold"
 	if PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) >= grav_threshold:
 		for platform in $Platforms.get_children():
 			platform.axis_lock_linear_y = false
 		$PlayerContainer/Player.level_falling = true
+
+func grav_update():
+	grav_ui.set_value_no_signal(PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY))
 
