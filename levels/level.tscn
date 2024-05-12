@@ -33,6 +33,7 @@ directional_shadow_mode = 0
 [node name="Pickups" type="Node3D" parent="."]
 
 [node name="GravityTimer" type="Timer" parent="."]
+wait_time = 0.01
 autostart = true
 
 [node name="PlayerContainer" type="Node3D" parent="."]

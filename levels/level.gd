@@ -1,7 +1,7 @@
 extends Node3D
 
 var player_scene = preload("res://player/player.tscn")
-var grav_increaser = 3
+var grav_increaser = 0.03
 var grav_threshold = 36
 @onready var grav_ui = $HUD/VBoxContainer/ProgressBar
 
