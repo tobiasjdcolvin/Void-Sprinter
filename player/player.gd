@@ -15,7 +15,12 @@ func _unhandled_input(event):
 		$CameraStick/Camera3D.rotate_x(-event.relative.y * GameGlobals.mouse_sens)
 		$CameraStick/Camera3D.rotation.x = clamp($CameraStick/Camera3D.rotation.x, -PI/4, PI/10)
 
+func _process(_delta):
+	if global_position.y <= -150:
+		get_parent().get_parent().reset_level()
+
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor() or level_falling:
 		velocity.y -= PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) * delta

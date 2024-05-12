@@ -42,3 +42,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7758, 9.06905, -37.4728)
 [node name="ReferenceText" type="MeshInstance3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97234, 3.78151, -34.4833)
 mesh = SubResource("TextMesh_4gcxs")
+
+[node name="PlayerSpawnPoint" parent="PlayerContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 6.32037, 2.08165e-12)
