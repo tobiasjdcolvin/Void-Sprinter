@@ -13,6 +13,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY, 9.8)
 	var player = player_scene.instantiate()
+	player.get_hud($HUD)
 	player.transform.origin = $PlayerContainer/PlayerSpawnPoint.transform.origin
 	$PlayerContainer.add_child(player)
 

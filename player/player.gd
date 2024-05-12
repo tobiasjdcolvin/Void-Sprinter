@@ -3,8 +3,22 @@ extends CharacterBody3D
 var speed = 6.0
 const JUMP_VELOCITY = 6.5
 var level_falling = false
-var num_jumps = 0
-var max_jumps = 1
+var num_jumps = 0:
+	set(value):
+		num_jumps = value
+		hud.set_jumps(str(max_jumps - num_jumps))
+	get:
+		return num_jumps
+var max_jumps = 1:
+	set(value):
+		max_jumps = value
+		hud.set_jumps(str(max_jumps - num_jumps))
+	get:
+		return max_jumps
+var hud
+
+func get_hud(hud_outside):
+	hud = hud_outside
 
 func grav_updated():
 	get_parent().get_parent().grav_update()
@@ -42,7 +56,10 @@ func _physics_process(delta):
 		$DashResetTimer.start()
 	
 	if not $DashTimer.is_stopped():
-		global_position = global_position.move_toward($CameraStick/DashMarker.global_position, delta * 25)
+		global_position = global_position.move_toward($CameraStick/DashMarker.global_position, delta * 35)
+	
+	if not $DashResetTimer.is_stopped():
+		hud.set_dash_text(str(snapped($DashResetTimer.time_left, 0.0000001)))
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -57,3 +74,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
+func _on_dash_reset_timer_timeout():
+	hud.set_dash_text("Dash Ready")
