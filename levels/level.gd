@@ -3,6 +3,7 @@ extends Node3D
 var player_scene = preload("res://player/player.tscn")
 var grav_increaser = 0.18
 var grav_threshold = 36
+var has_fallen = false
 @onready var grav_ui = $HUD/VBoxContainer/GravityProgressBar
 
 func _unhandled_input(event):
@@ -24,10 +25,22 @@ func _on_gravity_timer_timeout():
 	grav_ui.set_value_no_signal(PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY))
 	
 	# suck everything into the void once gravity reaches "grav_threshold"
-	if PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) >= grav_threshold:
+	if PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) >= grav_threshold and not has_fallen:
 		for platform in $Platforms.get_children():
 			platform.axis_lock_linear_y = false
+			var rng = RandomNumberGenerator.new()
+			var xrand = rng.randf_range(-PI/4, PI/4)
+			var zrand = rng.randf_range(-PI/4, PI/4)
+			platform.to_rotate_towards = Vector3(xrand, platform.rotation.y, zrand)
+		for pickup in $Pickups.get_children():
+			pickup.queue_free()
 		$PlayerContainer/Player.level_falling = true
+		has_fallen = true
+
+func _process(delta):
+	if has_fallen:
+		for platform in $Platforms.get_children():
+			platform.rotation = platform.rotation.move_toward(platform.to_rotate_towards, delta * 2)
 
 func grav_update():
 	grav_ui.set_value_no_signal(PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY))
