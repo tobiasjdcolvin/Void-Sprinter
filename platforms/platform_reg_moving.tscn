@@ -16,6 +16,8 @@ resource_local_to_scene = true
 size = Vector3(7, 2, 7)
 
 [node name="PlatformRegMoving" instance=ExtResource("1_kfo5v")]
+axis_lock_linear_x = false
+axis_lock_linear_z = false
 script = ExtResource("2_7i8gi")
 
 [node name="MeshInstance3D" parent="." index="0"]
