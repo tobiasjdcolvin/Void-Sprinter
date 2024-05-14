@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkfxtiavayq4k"]
+[gd_scene load_steps=7 format=3 uid="uid://bkfxtiavayq4k"]
 
 [ext_resource type="PackedScene" uid="uid://blbyky0qw54e0" path="res://levels/level.tscn" id="1_yigoe"]
 [ext_resource type="PackedScene" uid="uid://lkdfpjqlndm0" path="res://platforms/platform_reg.tscn" id="2_instf"]
 [ext_resource type="PackedScene" uid="uid://ongkf3htb78x" path="res://platforms/platform_reg_moving.tscn" id="3_1rw22"]
 [ext_resource type="PackedScene" uid="uid://1d56f4hpoikm" path="res://pickups/pickup_jump.tscn" id="3_54qat"]
 [ext_resource type="PackedScene" uid="uid://tl82a2m8rhfq" path="res://pickups/pickup_grav.tscn" id="4_wfegy"]
+
+[sub_resource type="TextMesh" id="TextMesh_qtbte"]
+text = "REFERENCE"
+font_size = 127
 
 [node name="LevelOne" instance=ExtResource("1_yigoe")]
 
@@ -37,3 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7838, 10.264, -37.4536)
 
 [node name="PlayerSpawnPoint" parent="PlayerContainer" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 6.32037, 2.08165e-12)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1063, 9.53465, -18.3922)
+mesh = SubResource("TextMesh_qtbte")

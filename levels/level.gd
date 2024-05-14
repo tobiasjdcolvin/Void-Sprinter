@@ -38,10 +38,12 @@ func _on_gravity_timer_timeout():
 		$PlayerContainer/Player.level_falling = true
 		has_fallen = true
 
-func _process(delta):
+func _process(_delta):
 	if has_fallen:
 		for platform in $Platforms.get_children():
-			platform.rotation = platform.rotation.move_toward(platform.to_rotate_towards, delta * 2)
+			if not platform.has_rotated:
+				platform.rotate_now()
+				platform.has_rotated = true
 
 func grav_update():
 	grav_ui.set_value_no_signal(PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY))
