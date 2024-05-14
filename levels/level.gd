@@ -27,6 +27,7 @@ func _on_gravity_timer_timeout():
 	# suck everything into the void once gravity reaches "grav_threshold"
 	if PhysicsServer3D.area_get_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY) >= grav_threshold and not has_fallen:
 		for platform in $Platforms.get_children():
+			platform.falling = true
 			platform.axis_lock_linear_y = false
 			var rng = RandomNumberGenerator.new()
 			var xrand = rng.randf_range(-PI/4, PI/4)

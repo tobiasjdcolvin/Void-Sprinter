@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkfxtiavayq4k"]
+[gd_scene load_steps=6 format=3 uid="uid://bkfxtiavayq4k"]
 
 [ext_resource type="PackedScene" uid="uid://blbyky0qw54e0" path="res://levels/level.tscn" id="1_yigoe"]
 [ext_resource type="PackedScene" uid="uid://lkdfpjqlndm0" path="res://platforms/platform_reg.tscn" id="2_instf"]
+[ext_resource type="PackedScene" uid="uid://ongkf3htb78x" path="res://platforms/platform_reg_moving.tscn" id="3_1rw22"]
 [ext_resource type="PackedScene" uid="uid://1d56f4hpoikm" path="res://pickups/pickup_jump.tscn" id="3_54qat"]
 [ext_resource type="PackedScene" uid="uid://tl82a2m8rhfq" path="res://pickups/pickup_grav.tscn" id="4_wfegy"]
 
@@ -13,11 +14,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.5, 2.08165e-1
 [node name="PlatformReg2" parent="Platforms" index="1" instance=ExtResource("2_instf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.31792, -11.0614)
 
-[node name="PlatformReg3" parent="Platforms" index="2" instance=ExtResource("2_instf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14884, 3.68627, -24.4229)
-
-[node name="PlatformReg4" parent="Platforms" index="3" instance=ExtResource("2_instf")]
+[node name="PlatformReg4" parent="Platforms" index="2" instance=ExtResource("2_instf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4771, 8.076, -38.372)
+
+[node name="PlatformRegMoving" parent="Platforms" index="3" instance=ExtResource("3_1rw22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4961, 3.83345, -25.3692)
 
 [node name="PickupJump1" parent="Pickups" index="0" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92553, -4.95362)
