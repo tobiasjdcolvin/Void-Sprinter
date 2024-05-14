@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfrhkt4u62no8"]
+
+[ext_resource type="PackedScene" uid="uid://lkdfpjqlndm0" path="res://platforms/platform_reg.tscn" id="1_knoko"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e42wq"]
+albedo_color = Color(0.38, 0.576333, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5riwl"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_e42wq")
+size = Vector3(10, 4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne1ok"]
+resource_local_to_scene = true
+size = Vector3(10, 4, 10)
+
+[node name="PlatformLarge" instance=ExtResource("1_knoko")]
+
+[node name="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_5riwl")
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+shape = SubResource("BoxShape3D_ne1ok")

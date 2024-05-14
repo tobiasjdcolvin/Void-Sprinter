@@ -6,11 +6,13 @@
 albedo_color = Color(0.38, 0.576333, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1hcvi"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_e42wq")
-size = Vector3(8, 1, 8)
+size = Vector3(7, 2, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8xh6"]
-size = Vector3(8, 1, 8)
+resource_local_to_scene = true
+size = Vector3(7, 2, 7)
 
 [node name="PlatformReg" type="RigidBody3D"]
 collision_layer = 4
