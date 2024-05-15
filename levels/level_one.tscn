@@ -83,28 +83,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.921494, 25.8949, -37.2187)
 [node name="PickupJump10" parent="Pickups" index="17" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01491, 31.327, -39.332)
 
-[node name="PickupJump11" parent="Pickups" index="18" instance=ExtResource("3_54qat")]
+[node name="PickupJump19" parent="Pickups" index="18" instance=ExtResource("3_54qat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.82245, 33.9257, -40.1716)
+
+[node name="PickupJump11" parent="Pickups" index="19" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6746, 53.3231, -62.4834)
 
-[node name="PickupJump14" parent="Pickups" index="19" instance=ExtResource("3_54qat")]
+[node name="PickupJump14" parent="Pickups" index="20" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8117, 50.7706, -59.8345)
 
-[node name="PickupJump12" parent="Pickups" index="20" instance=ExtResource("3_54qat")]
+[node name="PickupJump12" parent="Pickups" index="21" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.797, 57.9588, -64.821)
 
-[node name="PickupJump16" parent="Pickups" index="21" instance=ExtResource("3_54qat")]
+[node name="PickupJump16" parent="Pickups" index="22" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9028, 60.0082, -65.4781)
 
-[node name="PickupJump15" parent="Pickups" index="22" instance=ExtResource("3_54qat")]
+[node name="PickupJump15" parent="Pickups" index="23" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.461, 55.9845, -63.6476)
 
-[node name="PickupJump13" parent="Pickups" index="23" instance=ExtResource("3_54qat")]
+[node name="PickupJump13" parent="Pickups" index="24" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4407, 63.55, -67.6509)
 
-[node name="PickupJump18" parent="Pickups" index="24" instance=ExtResource("3_54qat")]
+[node name="PickupJump18" parent="Pickups" index="25" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55701, 64.8966, -68.5667)
 
-[node name="PickupJump17" parent="Pickups" index="25" instance=ExtResource("3_54qat")]
+[node name="PickupJump17" parent="Pickups" index="26" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49541, 62.3897, -67.2079)
 
 [node name="PlayerSpawnPoint" parent="PlayerContainer" index="0"]

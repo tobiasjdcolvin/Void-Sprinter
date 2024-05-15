@@ -12,8 +12,16 @@ sky_material = SubResource("ProceduralSkyMaterial_x742i")
 
 [sub_resource type="Environment" id="Environment_ok5sf"]
 background_mode = 1
+background_color = Color(0.082, 0.04, 0.16, 1)
+background_energy_multiplier = 1.84
 sky = SubResource("Sky_3rs0p")
+ambient_light_source = 3
+ambient_light_color = Color(0.59727, 0.4558, 0.86, 1)
+ambient_light_sky_contribution = 0.3
+ambient_light_energy = 0.3
+reflected_light_source = 1
 tonemap_mode = 2
+tonemap_exposure = 0.7
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_kxf4g")
@@ -22,11 +30,6 @@ script = ExtResource("1_kxf4g")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ok5sf")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, -6.02207e-16, 2.39647e-16, 2.39647e-16, 0.687087, 0.726575, -6.02207e-16, -0.726575, 0.687087, 0.0110445, 12.6982, 0.0105581)
-light_energy = 0.6
-directional_shadow_mode = 0
 
 [node name="Platforms" type="Node3D" parent="."]
 
@@ -40,5 +43,12 @@ autostart = true
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="PlayerContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 3.77226, 2.08165e-12)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.996449, -0.0152141, -0.0828137, 0.0841996, 0.180049, 0.980047, -6.86092e-16, -0.98354, 0.180691, 0, 0, 0)
+light_color = Color(0.8115, 0.71, 1, 1)
+light_energy = 0.3
+light_angular_distance = 0.5
+directional_shadow_mode = 0
 
 [connection signal="timeout" from="GravityTimer" to="." method="_on_gravity_timer_timeout"]

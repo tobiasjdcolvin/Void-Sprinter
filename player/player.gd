@@ -27,7 +27,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		$CameraStick.rotate_y(-event.relative.x * GameGlobals.mouse_sens)
 		$CameraStick/Camera3D.rotate_x(-event.relative.y * GameGlobals.mouse_sens)
-		$CameraStick/Camera3D.rotation.x = clamp($CameraStick/Camera3D.rotation.x, -PI/4, PI/10)
+		$CameraStick/Camera3D.rotation.x = clamp($CameraStick/Camera3D.rotation.x, -PI/3, PI/4)
 
 func _process(_delta):
 	if global_position.y <= -150:
