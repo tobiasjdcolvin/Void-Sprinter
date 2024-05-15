@@ -23,6 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4771, 8.076, -38.372)
 
 [node name="PlatformRegMoving" parent="Platforms" index="3" instance=ExtResource("3_1rw22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4961, 3.83345, -25.3692)
+move_direc = "up"
 
 [node name="PickupJump1" parent="Pickups" index="0" instance=ExtResource("3_54qat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.92553, -4.95362)

@@ -15,6 +15,11 @@ resource_local_to_scene = true
 size = Vector3(8, 1, 8)
 
 [node name="PlatformFlat" instance=ExtResource("1_pf1ws")]
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_y = true
+gravity_scale = 1.66533e-16
 
 [node name="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("BoxMesh_yclcx")

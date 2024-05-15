@@ -17,11 +17,10 @@ size = Vector3(7, 2, 7)
 [node name="PlatformReg" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 5
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
 axis_lock_angular_x = true
+axis_lock_angular_y = true
 axis_lock_angular_z = true
+gravity_scale = 1.66533e-16
 script = ExtResource("1_pwq8l")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
