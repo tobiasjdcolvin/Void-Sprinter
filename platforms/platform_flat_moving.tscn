@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://76utr7fqtkit"]
+
+[ext_resource type="PackedScene" uid="uid://c3xs6biqutqbs" path="res://platforms/platform_flat.tscn" id="1_a7ruw"]
+[ext_resource type="Script" path="res://platforms/platform_reg_moving.gd" id="2_enhhv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e42wq"]
+albedo_color = Color(0.38, 0.576333, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_df2k8"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_e42wq")
+size = Vector3(8, 1, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u34jy"]
+resource_local_to_scene = true
+size = Vector3(8, 1, 8)
+
+[node name="PlatformFlatMoving" instance=ExtResource("1_a7ruw")]
+script = ExtResource("2_enhhv")
+move_direc = "right"
+
+[node name="MeshInstance3D" parent="." index="0"]
+mesh = SubResource("BoxMesh_df2k8")
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_u34jy")
+
+[node name="MoveTimer" type="Timer" parent="." index="2"]
+wait_time = 4.0
+autostart = true
