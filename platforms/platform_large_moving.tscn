@@ -25,6 +25,8 @@ mesh = SubResource("BoxMesh_nv7fm")
 [node name="CollisionShape3D" parent="." index="1"]
 shape = SubResource("BoxShape3D_fl5fo")
 
-[node name="Timer" type="Timer" parent="." index="2"]
+[node name="MoveTimer" type="Timer" parent="." index="2"]
 wait_time = 4.0
 autostart = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
