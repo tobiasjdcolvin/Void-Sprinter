@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://b60ba0evqysqu"]
+
+[ext_resource type="Script" path="res://ui/levels.gd" id="1_8e86d"]
+[ext_resource type="Theme" uid="uid://maanp2stlr34" path="res://art/main_theme.tres" id="1_su5fe"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8e86d")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.051
+anchor_right = 0.5
+anchor_bottom = 0.051
+offset_left = -71.5
+offset_right = 71.5
+offset_bottom = 26.0
+grow_horizontal = 2
+theme = ExtResource("1_su5fe")
+theme_override_font_sizes/font_size = 32
+text = "Level Select"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.25
+anchor_right = 0.8
+anchor_bottom = 0.35
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Level1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_su5fe")
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_su5fe")
+text = "Locked"
+
+[node name="Level3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_su5fe")
+text = "Locked"
+
+[node name="Level4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_su5fe")
+text = "Locked"
+
+[node name="Level5" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_su5fe")
+text = "Locked"
+
+[connection signal="pressed" from="HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level2" to="." method="_on_level_2_pressed"]

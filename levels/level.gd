@@ -10,6 +10,8 @@ var has_fallen = false
 func _unhandled_input(event):
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
+	if event.is_action_pressed("exit"):
+		get_tree().change_scene_to_file("res://ui/main_menu.tscn")
 
 func _ready():
 	GameGlobals.cur_level = level_num
