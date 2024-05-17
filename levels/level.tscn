@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blbyky0qw54e0"]
+[gd_scene load_steps=7 format=3 uid="uid://blbyky0qw54e0"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_kxf4g"]
 [ext_resource type="PackedScene" uid="uid://djfr0mmvq5muc" path="res://ui/hud.tscn" id="2_7m7rh"]
+[ext_resource type="PackedScene" uid="uid://bsnr5we3xov1t" path="res://levels/pickup_level_switch.tscn" id="3_4qoom"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x742i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,5 +51,8 @@ light_color = Color(0.8115, 0.71, 1, 1)
 light_energy = 0.3
 light_angular_distance = 0.5
 directional_shadow_mode = 0
+
+[node name="PickupLevelSwitch" parent="." instance=ExtResource("3_4qoom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0558, 8.47433, 0)
 
 [connection signal="timeout" from="GravityTimer" to="." method="_on_gravity_timer_timeout"]

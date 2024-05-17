@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VoidSprinter"
-run/main_scene="res://levels/level_one.tscn"
+run/main_scene="res://levels/level_1.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://art/icon.svg"
 

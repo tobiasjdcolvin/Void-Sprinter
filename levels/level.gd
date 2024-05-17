@@ -4,6 +4,7 @@ var player_scene = preload("res://player/player.tscn")
 var grav_increaser = 0.18
 var grav_threshold = 36
 var has_fallen = false
+@export var level_num: int
 @onready var grav_ui = $HUD/VBoxContainer/GravityProgressBar
 
 func _unhandled_input(event):
@@ -11,6 +12,7 @@ func _unhandled_input(event):
 		get_tree().reload_current_scene()
 
 func _ready():
+	GameGlobals.cur_level = level_num
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY, 9.8)
 	var player = player_scene.instantiate()
