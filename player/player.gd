@@ -59,7 +59,7 @@ func _physics_process(delta):
 		global_position = global_position.move_toward($CameraStick/DashMarker.global_position, delta * 35)
 	
 	if not $DashResetTimer.is_stopped():
-		hud.set_dash_text(str(snapped($DashResetTimer.time_left, 0.0000001)))
+		hud.set_dash_text(str(snapped($DashResetTimer.time_left, 0.00001)))
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -76,4 +76,4 @@ func _physics_process(delta):
 
 
 func _on_dash_reset_timer_timeout():
-	hud.set_dash_text("Dash Ready")
+	hud.set_dash_text("Dash")
