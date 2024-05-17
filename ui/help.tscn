@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://cly0oi5hy2icc"]
+
+[ext_resource type="Script" path="res://ui/help.gd" id="1_kasg1"]
+[ext_resource type="Theme" uid="uid://maanp2stlr34" path="res://art/main_theme.tres" id="1_rq6r5"]
+
+[node name="Help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kasg1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.059
+anchor_right = 0.9
+anchor_bottom = 0.339
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 21
+alignment = 1
+
+[node name="Title1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_rq6r5")
+theme_override_font_sizes/font_size = 41
+text = "How To Play"
+
+[node name="paragraph1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_rq6r5")
+theme_override_font_sizes/font_size = 25
+text = "Don't let gravity get too strong, or the VOID will suck you in!
+YELLOW pickups decrease gravity.
+GREEN pickups increase your max jumps and your speed."
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.415
+anchor_right = 1.0
+anchor_bottom = 0.788
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 21
+alignment = 1
+
+[node name="Title2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_rq6r5")
+theme_override_font_sizes/font_size = 41
+text = "Controls"
+
+[node name="paragraph2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_rq6r5")
+theme_override_font_sizes/font_size = 25
+text = "Exit to main menu: ESCAPE
+Reset level: R
+Move: WASD or ARROW KEYS
+Jump: SPACE
+Dash: LEFT SHIFT"

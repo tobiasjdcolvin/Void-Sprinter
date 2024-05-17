@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvu3veljqt7y3"]
+[gd_scene load_steps=3 format=3 uid="uid://jhbnabckdhu5"]
 
-[ext_resource type="Theme" uid="uid://maanp2stlr34" path="res://art/main_theme.tres" id="1_j70m0"]
-[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_jnber"]
+[ext_resource type="Script" path="res://ui/win_screen.gd" id="1_gbd6f"]
+[ext_resource type="Theme" uid="uid://maanp2stlr34" path="res://art/main_theme.tres" id="2_uuyha"]
 
-[node name="MainMenu" type="Control"]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jnber")
+script = ExtResource("1_gbd6f")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -23,9 +23,9 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme = ExtResource("1_j70m0")
+theme = ExtResource("2_uuyha")
 theme_override_font_sizes/font_size = 80
-text = "Void Sprinter"
+text = "You Won!"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -44,20 +44,20 @@ alignment = 1
 [node name="Play" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_j70m0")
-text = "Play"
+theme = ExtResource("2_uuyha")
+text = "Reset"
 
 [node name="LevelSelect" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_j70m0")
+theme = ExtResource("2_uuyha")
 text = "Levels"
 
 [node name="Help" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_j70m0")
-text = "Help"
+theme = ExtResource("2_uuyha")
+text = "Menu"
 
 [connection signal="pressed" from="ButtonContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonContainer/LevelSelect" to="." method="_on_level_select_pressed"]

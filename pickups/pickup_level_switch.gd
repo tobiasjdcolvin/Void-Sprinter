@@ -5,7 +5,7 @@ func _process(delta):
 
 func _on_body_entered(_body):
 	if GameGlobals.cur_level == GameGlobals.winning_level:
-		print_debug("GAME WON")
+		get_tree().change_scene_to_file("res://ui/win_screen.tscn")
 	else:
 		GameGlobals.cur_level += 1
 		if GameGlobals.unlocked_levels < GameGlobals.cur_level:
