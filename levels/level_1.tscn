@@ -112,4 +112,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49541, 57.7108, -67.2079)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 8.67154, 2.08165e-12)
 
 [node name="PickupLevelSwitch" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54328, 61.5734, -73.9671)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5605, 62.4939, -73.9785)

@@ -1,14 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsnr5we3xov1t"]
+[gd_scene load_steps=5 format=3 uid="uid://bsnr5we3xov1t"]
 
 [ext_resource type="PackedScene" uid="uid://1d56f4hpoikm" path="res://pickups/pickup_jump.tscn" id="1_vvixv"]
 [ext_resource type="Script" path="res://pickups/pickup_level_switch.gd" id="2_qdcyx"]
+[ext_resource type="PackedScene" uid="uid://bnceo36cfinq" path="res://art/FinishLevelPickup.glb" id="3_3e0o2"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lue2e"]
-resource_local_to_scene = true
-size = Vector3(0.8, 0.8, 0.8)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ydu4u"]
+radius = 0.7
+height = 6.0
 
 [node name="PickupLevelSwitch" instance=ExtResource("1_vvixv")]
 script = ExtResource("2_qdcyx")
 
 [node name="CollisionShape3D" parent="." index="0"]
-shape = SubResource("BoxShape3D_lue2e")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641841, 0)
+shape = SubResource("CapsuleShape3D_ydu4u")
+
+[node name="JumpPickup" parent="." index="1"]
+visible = false
+
+[node name="FinishLevelPickup" parent="." index="2" instance=ExtResource("3_3e0o2")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
