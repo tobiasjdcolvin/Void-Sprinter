@@ -1,14 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1d56f4hpoikm"]
+[gd_scene load_steps=4 format=3 uid="uid://1d56f4hpoikm"]
 
 [ext_resource type="Script" path="res://pickups/pickup_jump.gd" id="1_m2ffp"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_diuir"]
-albedo_color = Color(0.06, 1, 0.169667, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hj3qu"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_diuir")
-size = Vector3(0.7, 0.7, 0.7)
+[ext_resource type="PackedScene" uid="uid://sgo67dqbtww0" path="res://art/JumpPickup.glb" id="2_hix3i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1cik"]
 resource_local_to_scene = true
@@ -18,10 +11,10 @@ size = Vector3(0.8, 0.8, 0.8)
 collision_layer = 2
 script = ExtResource("1_m2ffp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_hj3qu")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_v1cik")
+
+[node name="JumpPickup" parent="." instance=ExtResource("2_hix3i")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

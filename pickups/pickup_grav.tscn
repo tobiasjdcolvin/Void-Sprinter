@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tl82a2m8rhfq"]
+[gd_scene load_steps=4 format=3 uid="uid://tl82a2m8rhfq"]
 
 [ext_resource type="Script" path="res://pickups/pickup_grav.gd" id="1_fjlyf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_diuir"]
-albedo_color = Color(0.843333, 1, 0.06, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hj3qu"]
-material = SubResource("StandardMaterial3D_diuir")
-size = Vector3(0.7, 0.7, 0.7)
+[ext_resource type="PackedScene" uid="uid://0xa8o4ks2p60" path="res://art/GravPickup.glb" id="2_dwjff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1cik"]
 size = Vector3(0.8, 0.8, 0.8)
@@ -16,10 +10,10 @@ size = Vector3(0.8, 0.8, 0.8)
 collision_layer = 2
 script = ExtResource("1_fjlyf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_hj3qu")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_v1cik")
+
+[node name="GravPickup" parent="." instance=ExtResource("2_dwjff")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
