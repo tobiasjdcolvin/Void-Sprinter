@@ -26,6 +26,7 @@ func grav_updated():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		$CameraStick.rotate_y(-event.relative.x * GameGlobals.mouse_sens)
+		$SprinterGuy.rotate_y(-event.relative.x * GameGlobals.mouse_sens)
 		$CameraStick/Camera3D.rotate_x(-event.relative.y * GameGlobals.mouse_sens)
 		$CameraStick/Camera3D.rotation.x = clamp($CameraStick/Camera3D.rotation.x, -PI/3, PI/4)
 
@@ -71,6 +72,8 @@ func _physics_process(delta):
 	elif $DashTimer.is_stopped:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+	if not direction:
+		$SprinterGuy/AnimationPlayer.play("idle")
 
 	move_and_slide()
 
