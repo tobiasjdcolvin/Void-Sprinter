@@ -3,3 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://cysp65416fstg" path="res://art/SprinterGuy.glb" id="1_i3rjp"]
 
 [node name="SprinterGuy" instance=ExtResource("1_i3rjp")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-9.04873e-18, 2.2096, 0.0135839)
+bones/0/rotation = Quaternion(0.0107768, 1.74937e-19, -7.54016e-18, 0.999942)
+bones/2/rotation = Quaternion(-0.0469333, -0.201133, 0.898516, -0.387313)
+bones/3/rotation = Quaternion(0.284748, -0.114801, 0.0134697, 0.951608)
+bones/5/rotation = Quaternion(-0.00317392, 0.475701, 0.879587, 0.00505563)
+bones/6/rotation = Quaternion(-0.419289, -8.11091e-05, 0.00947304, 0.907804)
+bones/7/rotation = Quaternion(0.637986, -0.00375907, -0.00337675, 0.770032)
+bones/8/rotation = Quaternion(-0.064033, 0.35494, 0.898847, 0.248983)
+bones/9/rotation = Quaternion(0.331623, 0.0437995, 0.127129, 0.93378)
+bones/11/rotation = Quaternion(0.000211994, -0.173754, 0.984784, -0.00301485)
+bones/12/rotation = Quaternion(-0.180618, 8.78743e-05, -0.00408072, 0.983545)
+bones/13/rotation = Quaternion(0.736837, 0.00172855, 0.000360439, 0.676068)

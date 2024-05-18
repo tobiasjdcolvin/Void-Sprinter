@@ -69,6 +69,7 @@ func _physics_process(delta):
 	if direction and $DashTimer.is_stopped:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		$SprinterGuy/AnimationPlayer.play("run")
 	elif $DashTimer.is_stopped:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
