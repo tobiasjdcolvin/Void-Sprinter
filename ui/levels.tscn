@@ -65,11 +65,7 @@ size_flags_horizontal = 3
 theme = ExtResource("1_su5fe")
 text = "Locked"
 
-[node name="Level5" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_su5fe")
-text = "Locked"
-
 [connection signal="pressed" from="HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Level4" to="." method="_on_level_4_pressed"]

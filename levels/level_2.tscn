@@ -26,10 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -12, -36)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -21, -77)
 
 [node name="PlatformSmall" parent="Platforms" index="5" instance=ExtResource("5_5xt3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -19, -104.921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -19, -104.033)
 
 [node name="PlatformSmall2" parent="Platforms" index="6" instance=ExtResource("5_5xt3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -15.2518, -116.39)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -15.2518, -125.924)
 
 [node name="PlatformLarge2" parent="Platforms" index="7" instance=ExtResource("2_g1oc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -10, -139)
@@ -47,10 +47,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -20, -75)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -20, -78)
 
 [node name="PickupGrav6" parent="Pickups" index="4" instance=ExtResource("6_8lxcn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -17.4685, -104.908)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -17.4685, -103.673)
 
 [node name="PickupGrav7" parent="Pickups" index="5" instance=ExtResource("6_8lxcn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2745, -13.5386, -115.972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2745, -13.5386, -124.32)
 
 [node name="PickupGrav5" parent="Pickups" index="6" instance=ExtResource("6_8lxcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -20, -78)
@@ -62,19 +62,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, -11, -34)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -20, -74)
 
 [node name="PickupJump3" parent="Pickups" index="9" instance=ExtResource("7_lhwpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3497, -13.5209, -116.259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3497, -13.5209, -124.607)
 
 [node name="PickupJump4" parent="Pickups" index="10" instance=ExtResource("7_lhwpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1057, -13.5209, -117.734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1057, -13.5209, -126.082)
 
 [node name="PickupJump5" parent="Pickups" index="11" instance=ExtResource("7_lhwpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8322, -11.0185, -120.769)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6959, -11.0185, -128.394)
 
 [node name="PickupJump6" parent="Pickups" index="12" instance=ExtResource("7_lhwpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1019, -8.47182, -125.878)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1019, -8.47182, -131.746)
 
 [node name="PlayerSpawnPoint" parent="PlayerContainer" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 5.9421, 2.08165e-12)
 
 [node name="PickupLevelSwitch" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68821, -5.25965, -138.865)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.14054, -5.25965, -138.339)
