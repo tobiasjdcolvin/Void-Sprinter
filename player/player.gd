@@ -33,6 +33,10 @@ func _unhandled_input(event):
 func _process(_delta):
 	if global_position.y <= -150:
 		get_parent().get_parent().reset_level()
+	
+	if level_falling:
+		$SprinterGuy/AnimationPlayer.play("fall")
+
 
 func _physics_process(delta):
 	
@@ -48,11 +52,13 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and num_jumps <= max_jumps - 1 and $JumpTimer.is_stopped() and not level_falling:
+		$SprinterGuy/AnimationPlayer.play("jump")
 		velocity.y = JUMP_VELOCITY
 		num_jumps += 1
 		$JumpTimer.start()
 	
 	if Input.is_action_pressed("dash") and $DashResetTimer.is_stopped() and not level_falling:
+		$SprinterGuy/AnimationPlayer.play("dash")
 		$DashTimer.start()
 		$DashResetTimer.start()
 	
@@ -69,11 +75,13 @@ func _physics_process(delta):
 	if direction and $DashTimer.is_stopped:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		$SprinterGuy/AnimationPlayer.play("run")
+		if is_on_floor and $DashTimer.is_stopped and $JumpTimer.is_stopped:
+			$SprinterGuy/AnimationPlayer.play("run")
+			
 	elif $DashTimer.is_stopped:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-	if not direction:
+	if not direction and $DashTimer.is_stopped and $JumpTimer.is_stopped:
 		$SprinterGuy/AnimationPlayer.play("idle")
 
 	move_and_slide()
