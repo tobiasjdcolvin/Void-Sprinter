@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 var speed = 6.0
 const JUMP_VELOCITY = 6.5
+var is_jumping = false
 var level_falling = false
 var num_jumps = 0:
 	set(value):
@@ -34,8 +35,12 @@ func _process(_delta):
 	if global_position.y <= -150:
 		get_parent().get_parent().reset_level()
 	
+	
 	if level_falling:
 		$SprinterGuy/AnimationPlayer.play("fall")
+	
+	if not $DashTimer.is_stopped():
+		$SprinterGuy/AnimationPlayer.play("dash")
 
 
 func _physics_process(delta):
@@ -50,15 +55,15 @@ func _physics_process(delta):
 	if level_falling:
 		max_jumps = 1
 
-	# Handle jump.
 	if Input.is_action_pressed("jump") and num_jumps <= max_jumps - 1 and $JumpTimer.is_stopped() and not level_falling:
+		$JumpTimer.start()
+		is_jumping = true
 		$SprinterGuy/AnimationPlayer.play("jump")
 		velocity.y = JUMP_VELOCITY
 		num_jumps += 1
-		$JumpTimer.start()
+
 	
 	if Input.is_action_pressed("dash") and $DashResetTimer.is_stopped() and not level_falling:
-		$SprinterGuy/AnimationPlayer.play("dash")
 		$DashTimer.start()
 		$DashResetTimer.start()
 	
@@ -75,13 +80,17 @@ func _physics_process(delta):
 	if direction and $DashTimer.is_stopped:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		if is_on_floor and $DashTimer.is_stopped and $JumpTimer.is_stopped:
+		if is_on_floor and $DashTimer.is_stopped and not is_jumping:
 			$SprinterGuy/AnimationPlayer.play("run")
 			
 	elif $DashTimer.is_stopped:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-	if not direction and $DashTimer.is_stopped and $JumpTimer.is_stopped:
+		
+	if not direction and $DashTimer.is_stopped and not is_jumping:
+		$SprinterGuy/AnimationPlayer.play("idle")
+	
+	if not is_on_floor() and $DashTimer.is_stopped and not is_jumping:
 		$SprinterGuy/AnimationPlayer.play("idle")
 
 	move_and_slide()
@@ -89,3 +98,7 @@ func _physics_process(delta):
 
 func _on_dash_reset_timer_timeout():
 	hud.set_dash_text("Dash")
+
+
+func _on_jump_timer_timeout():
+	is_jumping = false
